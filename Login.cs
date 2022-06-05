@@ -27,7 +27,7 @@ namespace Prettybike
 
         private static List<string> orders = new();
         private static List<int> amounts = new();
-        private void Lbl_Identif_Click(object sender, EventArgs e)
+        private void lbl_Identif_Click(object sender, EventArgs e)
         {
 
         }
@@ -113,7 +113,7 @@ namespace Prettybike
 
 
         
-        private void Btn_login_Click(object sender, EventArgs e)
+        private void btn_login_Click(object sender, EventArgs e)
         {
 
             ManagerPart_Newpage();
@@ -267,7 +267,7 @@ namespace Prettybike
 
 
 
-        private void Btn_login_builder_Click(object sender, EventArgs e)
+        private void btn_login_builder_Click(object sender, EventArgs e)
         {
             //Quel builder a ete selectionné?
             string selectedName = comboBox1.GetItemText(comboBox1.SelectedItem);
@@ -376,12 +376,12 @@ namespace Prettybike
             }
         }
 
-        private void ComboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
+        private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
         {
 
         }
 
-        private void Btn_back_Click(object sender, EventArgs e)
+        private void btn_back_Click(object sender, EventArgs e)
         {   
             
             this.Close();

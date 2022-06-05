@@ -38,7 +38,6 @@
             this.lbl_ManagerName = new System.Windows.Forms.Label();
             this.txtbox_amount = new System.Windows.Forms.TextBox();
             this.combobox_Builders = new System.Windows.Forms.ComboBox();
-            this.btn_validate = new System.Windows.Forms.Button();
             this.lbl_Manager = new System.Windows.Forms.Label();
             this.lbl_Amount = new System.Windows.Forms.Label();
             this.lbl_builder = new System.Windows.Forms.Label();
@@ -53,6 +52,8 @@
             this.lbl_size = new System.Windows.Forms.Label();
             this.lbl_color = new System.Windows.Forms.Label();
             this.btn_back = new System.Windows.Forms.Button();
+            this.lbl_amount_left_display = new System.Windows.Forms.Label();
+            this.lbl_amount_left_generate = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // lbl_finished
@@ -76,11 +77,11 @@
             // 
             // btn_newOrder
             // 
-            this.btn_newOrder.Location = new System.Drawing.Point(587, 503);
+            this.btn_newOrder.Location = new System.Drawing.Point(587, 321);
             this.btn_newOrder.Name = "btn_newOrder";
             this.btn_newOrder.Size = new System.Drawing.Size(112, 34);
             this.btn_newOrder.TabIndex = 36;
-            this.btn_newOrder.Text = "New Order";
+            this.btn_newOrder.Text = "Validate";
             this.btn_newOrder.UseVisualStyleBackColor = true;
             this.btn_newOrder.Click += new System.EventHandler(this.btn_newOrder_Click);
             // 
@@ -148,16 +149,6 @@
             this.combobox_Builders.Name = "combobox_Builders";
             this.combobox_Builders.Size = new System.Drawing.Size(246, 33);
             this.combobox_Builders.TabIndex = 26;
-            // 
-            // btn_validate
-            // 
-            this.btn_validate.Location = new System.Drawing.Point(587, 379);
-            this.btn_validate.Name = "btn_validate";
-            this.btn_validate.Size = new System.Drawing.Size(112, 34);
-            this.btn_validate.TabIndex = 25;
-            this.btn_validate.Text = "Validate";
-            this.btn_validate.UseVisualStyleBackColor = true;
-            this.btn_validate.Click += new System.EventHandler(this.btn_validate_Click);
             // 
             // lbl_Manager
             // 
@@ -230,7 +221,7 @@
             // lbl_TotalAmount_Generate
             // 
             this.lbl_TotalAmount_Generate.AutoSize = true;
-            this.lbl_TotalAmount_Generate.Location = new System.Drawing.Point(941, 138);
+            this.lbl_TotalAmount_Generate.Location = new System.Drawing.Point(938, 52);
             this.lbl_TotalAmount_Generate.Name = "lbl_TotalAmount_Generate";
             this.lbl_TotalAmount_Generate.Size = new System.Drawing.Size(0, 25);
             this.lbl_TotalAmount_Generate.TabIndex = 42;
@@ -238,7 +229,7 @@
             // lbl_Totalamount_display
             // 
             this.lbl_Totalamount_display.AutoSize = true;
-            this.lbl_Totalamount_display.Location = new System.Drawing.Point(884, 84);
+            this.lbl_Totalamount_display.Location = new System.Drawing.Point(894, 22);
             this.lbl_Totalamount_display.Name = "lbl_Totalamount_display";
             this.lbl_Totalamount_display.Size = new System.Drawing.Size(119, 25);
             this.lbl_Totalamount_display.TabIndex = 43;
@@ -279,7 +270,7 @@
             // 
             // btn_back
             // 
-            this.btn_back.Location = new System.Drawing.Point(104, 579);
+            this.btn_back.Location = new System.Drawing.Point(172, 533);
             this.btn_back.Name = "btn_back";
             this.btn_back.Size = new System.Drawing.Size(112, 34);
             this.btn_back.TabIndex = 48;
@@ -287,12 +278,33 @@
             this.btn_back.UseVisualStyleBackColor = true;
             this.btn_back.Click += new System.EventHandler(this.btn_back_Click);
             // 
+            // lbl_amount_left_display
+            // 
+            this.lbl_amount_left_display.AutoSize = true;
+            this.lbl_amount_left_display.ForeColor = System.Drawing.SystemColors.Control;
+            this.lbl_amount_left_display.Location = new System.Drawing.Point(897, 99);
+            this.lbl_amount_left_display.Name = "lbl_amount_left_display";
+            this.lbl_amount_left_display.Size = new System.Drawing.Size(116, 25);
+            this.lbl_amount_left_display.TabIndex = 49;
+            this.lbl_amount_left_display.Text = "Amount left :";
+            // 
+            // lbl_amount_left_generate
+            // 
+            this.lbl_amount_left_generate.AutoSize = true;
+            this.lbl_amount_left_generate.ForeColor = System.Drawing.SystemColors.Control;
+            this.lbl_amount_left_generate.Location = new System.Drawing.Point(949, 137);
+            this.lbl_amount_left_generate.Name = "lbl_amount_left_generate";
+            this.lbl_amount_left_generate.Size = new System.Drawing.Size(0, 25);
+            this.lbl_amount_left_generate.TabIndex = 50;
+            // 
             // Manager_Part
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(1622, 956);
+            this.Controls.Add(this.lbl_amount_left_generate);
+            this.Controls.Add(this.lbl_amount_left_display);
             this.Controls.Add(this.btn_back);
             this.Controls.Add(this.lbl_color);
             this.Controls.Add(this.lbl_size);
@@ -313,13 +325,12 @@
             this.Controls.Add(this.lbl_ManagerName);
             this.Controls.Add(this.txtbox_amount);
             this.Controls.Add(this.combobox_Builders);
-            this.Controls.Add(this.btn_validate);
             this.Controls.Add(this.lbl_Manager);
             this.Controls.Add(this.lbl_Amount);
             this.Controls.Add(this.lbl_builder);
             this.Controls.Add(this.lbl_orders);
             this.Name = "Manager_Part";
-            this.Text = "Form1";
+            this.Text = "Amount Left :";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -338,7 +349,6 @@
         public Label lbl_ManagerName;
         private TextBox txtbox_amount;
         public ComboBox combobox_Builders;
-        private Button btn_validate;
         private Label lbl_Manager;
         private Label lbl_Amount;
         private Label lbl_builder;
@@ -353,5 +363,7 @@
         public Label lbl_size;
         public Label lbl_color;
         private Button btn_back;
+        private Label lbl_amount_left_display;
+        private Label lbl_amount_left_generate;
     }
 }
