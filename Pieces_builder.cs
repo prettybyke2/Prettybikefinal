@@ -22,19 +22,19 @@ namespace Prettybike
             this.currentValue = currentValue;
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Builder_home f2 = new Builder_home(this.currentName, this.currentValue) ;
+            Builder_home f2 = new(this.currentName, this.currentValue) ;
             f2.Show();
         }
 
-        private void label1_Click(object sender, EventArgs e)
+        private void Label1_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void label2_Click(object sender, EventArgs e)
+        private void Label2_Click(object sender, EventArgs e)
         {
 
         }
@@ -50,14 +50,14 @@ namespace Prettybike
 
         }
 
-        private void piece1_Click(object sender, EventArgs e)
+        private void Piece1_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void Button2_Click(object sender, EventArgs e)
         {
-            Builder_home homepage_Part = new Builder_home(this.currentName,this.currentValue) ;
+            Builder_home homepage_Part = new(this.currentName,this.currentValue) ;
             homepage_Part.Show();
 
             this.Hide();
@@ -65,7 +65,7 @@ namespace Prettybike
 
 
 
-            MySqlConnection myConnection = new MySqlConnection("database = New_db; server = pat.infolab.ecam.be;port = 63345; user = admin; pwd = prettybyke2");
+            MySqlConnection myConnection = new("database = New_db; server = pat.infolab.ecam.be;port = 63345; user = admin; pwd = prettybyke2");
             try
             {
                 myConnection.Open();
@@ -78,12 +78,12 @@ namespace Prettybike
                 String QueryWorkingDaysHasBikes = "SELECT * FROM Working_Day_has_Bikes";
 
 
-                MySqlCommand myCmd_Client = new MySqlCommand(QueryRepres, myConnection);
-                MySqlCommand myCmd_Order = new MySqlCommand(QueryCommand, myConnection);
-                MySqlCommand myCmd_Builder = new MySqlCommand(QueryBuilders, myConnection);
-                MySqlCommand myCmd_cmd_line = new MySqlCommand(Querycmd_line, myConnection);
-                MySqlCommand myCmd_Bikes = new MySqlCommand(QueryBikes, myConnection);
-                MySqlCommand myCmd_WorkingDaysHasBikes = new MySqlCommand(QueryWorkingDaysHasBikes, myConnection);
+                MySqlCommand myCmd_Client = new(QueryRepres, myConnection);
+                MySqlCommand myCmd_Order = new(QueryCommand, myConnection);
+                MySqlCommand myCmd_Builder = new(QueryBuilders, myConnection);
+                MySqlCommand myCmd_cmd_line = new(Querycmd_line, myConnection);
+                MySqlCommand myCmd_Bikes = new(QueryBikes, myConnection);
+                MySqlCommand myCmd_WorkingDaysHasBikes = new(QueryWorkingDaysHasBikes, myConnection);
 
 
 
@@ -92,22 +92,22 @@ namespace Prettybike
 
 
                 //Reader Builder
-                MySqlDataReader myDBReaderBuilder = myCmd_Builder.ExecuteReader();
-                DataTable myDTBuilders = new DataTable();
+                MySqlDataReader? myDBReaderBuilder = myCmd_Builder.ExecuteReader();
+                DataTable myDTBuilders = new();
                 myDTBuilders.Load(myDBReaderBuilder);
                 myDBReaderBuilder.Close();
                 myDBReaderBuilder = null;
 
                 // Reader Working Days has bikes
-                MySqlDataReader myDBReaderWorkingDaysHasBikes = myCmd_WorkingDaysHasBikes.ExecuteReader();
-                DataTable myDTWorkingDaysHasBikes = new DataTable();
+                MySqlDataReader? myDBReaderWorkingDaysHasBikes = myCmd_WorkingDaysHasBikes.ExecuteReader();
+                DataTable myDTWorkingDaysHasBikes = new();
                 myDTWorkingDaysHasBikes.Load(myDBReaderWorkingDaysHasBikes);
                 myDBReaderWorkingDaysHasBikes.Close();
                 myDBReaderWorkingDaysHasBikes = null;
 
                 // Reader Bikes
-                MySqlDataReader myDBReaderBikes = myCmd_Bikes.ExecuteReader();
-                DataTable myDTBikes = new DataTable();
+                MySqlDataReader? myDBReaderBikes = myCmd_Bikes.ExecuteReader();
+                DataTable myDTBikes = new();
                 myDTBikes.Load(myDBReaderBikes);
                 myDBReaderBikes.Close();
                 myDBReaderBikes = null;
@@ -154,22 +154,22 @@ namespace Prettybike
 
         }
 
-        private void label1_Click_1(object sender, EventArgs e)
+        private void Label1_Click_1(object sender, EventArgs e)
         {
 
         }
 
-        private void label1_Click_2(object sender, EventArgs e)
+        private void Label1_Click_2(object sender, EventArgs e)
         {
 
         }
 
-        private void label1_Click_3(object sender, EventArgs e)
+        private void Label1_Click_3(object sender, EventArgs e)
         {
 
         }
 
-        private void label1_Click_4(object sender, EventArgs e)
+        private void Label1_Click_4(object sender, EventArgs e)
         {
 
         }

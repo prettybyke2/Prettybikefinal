@@ -25,27 +25,27 @@ namespace Prettybike
             //orders.Add("vélos bleus City 28''");
         }
 
-        public static List<string> orders = new List<string>();
-        public static List<int> amounts = new List<int>();
-        private void lbl_Identif_Click(object sender, EventArgs e)
+        private static List<string> orders = new();
+        private static List<int> amounts = new();
+        private void Lbl_Identif_Click(object sender, EventArgs e)
         {
 
         }
 
 
-        private void label1_Click(object sender, EventArgs e)
+        private void Label1_Click(object sender, EventArgs e)
         {
 
         }
 
-        private void label1_Click_1(object sender, EventArgs e)
+        private void Label1_Click_1(object sender, EventArgs e)
         {
 
         }
 
 
 
-        private void button1_Click(object sender, EventArgs e)
+        private void Button1_Click(object sender, EventArgs e)
         {
 
 
@@ -53,45 +53,54 @@ namespace Prettybike
 
         }
 
-        public static class myAmount
+        public static class MyAmount
         {
+            private static readonly int v = amounts[0];
+            private static int currentAmount = v;
 
-            public static int currentAmount = amounts[0];
-
+            public static int CurrentAmount { get => currentAmount; set => currentAmount = value; }
         }
-        public static class myOrder
+        public static class MyOrder
         {
 
-            public static string currentOrder = orders[0];
+            private static string currentOrder = orders[0];
 
+            public static string CurrentOrder { get => currentOrder; set => currentOrder = value; }
         }
-        public DataTable OrderTable = new DataTable();
+        public DataTable OrderTable = new();
 
+        public static List<string> Orders { get => orders; set => orders = value; }
+        public static List<int> Amounts { get => amounts; set => amounts = value; }
 
-
-        public DataTable OrdersTable()
+        public static DataTable OrdersTable()
         {
-            System.Data.DataTable OrdersTable = new DataTable("Orders");
+            System.Data.DataTable OrdersTable = new("Orders");
             DataColumn column;
             DataRow row;
 
-            column = new DataColumn();
-            column.DataType = System.Type.GetType("System.Int32");
-            column.ColumnName = "idCommand";
-            column.Unique = true;
+            column = new()
+            {
+                DataType = System.Type.GetType("System.Int32"),
+                ColumnName = "idCommand",
+                Unique = true
+            };
             OrdersTable.Columns.Add(column);
 
-            column = new DataColumn();
-            column.DataType = System.Type.GetType("System.DateTime");
-            column.ColumnName = "date_cmd";
+            column = new()
+            {
+                DataType = System.Type.GetType("System.DateTime"),
+                ColumnName = "date_cmd"
+            };
             OrdersTable.Columns.Add(column);
 
-            column = new DataColumn();
-            column.DataType = System.Type.GetType("System.Int32");
-            column.ColumnName = "Representative_id_rps";
+            column = new()
+            {
+                DataType = System.Type.GetType("System.Int32"),
+                ColumnName = "Representative_id_rps"
+            };
             OrdersTable.Columns.Add(column);
 
-            DataColumn[] PrimaryKeyColumns = new DataColumn[1];
+            DataColumn[] PrimaryKeyColumns = (DataColumn[])Array.Empty<object>();
             PrimaryKeyColumns[0] = OrdersTable.Columns["idCommand"];
             OrdersTable.PrimaryKey = PrimaryKeyColumns;
 
@@ -104,7 +113,7 @@ namespace Prettybike
 
 
         
-        private void btn_login_Click(object sender, EventArgs e)
+        private void Btn_login_Click(object sender, EventArgs e)
         {
 
             ManagerPart_Newpage();
@@ -112,12 +121,12 @@ namespace Prettybike
 
         }
 
-        private void txtbox_Passwd_TextChanged(object sender, EventArgs e)
+        private void Txtbox_Passwd_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void txtbox_ID_TextChanged(object sender, EventArgs e)
+        private void Txtbox_ID_TextChanged(object sender, EventArgs e)
         {
 
             
@@ -128,7 +137,7 @@ namespace Prettybike
         private void ManagerPart_Newpage()
         {
 
-            Manager_Part manager_Part = new Manager_Part();
+            Manager_Part manager_Part = new();
             manager_Part.Show();
 
             this.Hide();
@@ -136,7 +145,7 @@ namespace Prettybike
 
 
 
-            MySqlConnection myConnection = new MySqlConnection("database = New_db; server = pat.infolab.ecam.be;port = 63345; user = admin; pwd = prettybyke2");
+            MySqlConnection myConnection = new("database = New_db; server = pat.infolab.ecam.be;port = 63345; user = admin; pwd = prettybyke2");
             try
             {
                 myConnection.Open();
@@ -147,29 +156,29 @@ namespace Prettybike
                 String QueryBikes = "SELECT * FROM Bikes";
 
 
-                MySqlCommand myCmd_Client = new MySqlCommand(QueryRepres, myConnection);
-                MySqlCommand myCmd_Order = new MySqlCommand(QueryCommand, myConnection);
-                MySqlCommand myCmd_Builder = new MySqlCommand(QueryBuilders, myConnection);
-                MySqlCommand myCmd_cmd_line = new MySqlCommand(Querycmd_line, myConnection);
-                MySqlCommand myCmd_Bikes = new MySqlCommand(QueryBikes, myConnection);
+                MySqlCommand myCmd_Client = new(QueryRepres, myConnection);
+                MySqlCommand myCmd_Order = new(QueryCommand, myConnection);
+                MySqlCommand myCmd_Builder = new(QueryBuilders, myConnection);
+                MySqlCommand myCmd_cmd_line = new(Querycmd_line, myConnection);
+                MySqlCommand myCmd_Bikes = new(QueryBikes, myConnection);
 
 
 
 
                 //Reader Command/Order
                 MySqlDataReader myDBReaderOrder = myCmd_Order.ExecuteReader();
-                DataTable myDTOrder = new DataTable();
+                DataTable myDTOrder = new();
                 myDTOrder.Load(myDBReaderOrder);
                 string IDClientstring = myDTOrder.Rows[manager_Part.increment]["Representative_id_rps"].ToString();
                 int IDClient = Int32.Parse(IDClientstring);
-                IDClient = IDClient - 1;
+                IDClient--;
                 myDBReaderOrder.Close();
                 myDBReaderOrder = null;
 
 
                 //Reader Client
                 MySqlDataReader myDBReaderClient = myCmd_Client.ExecuteReader();
-                DataTable myDTClients = new DataTable();
+                DataTable myDTClients = new();
                 myDTClients.Load(myDBReaderClient);
                 myDBReaderClient.Close();
                 myDBReaderClient = null;
@@ -178,7 +187,7 @@ namespace Prettybike
 
                 //Reader Builder
                 MySqlDataReader myDBReaderBuilder = myCmd_Builder.ExecuteReader();
-                DataTable myDTBuilders = new DataTable();
+                DataTable myDTBuilders = new();
                 myDTBuilders.Load(myDBReaderBuilder);
 
                 int incr = 0;
@@ -203,11 +212,11 @@ namespace Prettybike
 
                 //Reader Cmd_line
                 MySqlDataReader myDBReadercmd_line = myCmd_cmd_line.ExecuteReader();
-                DataTable myDTcmd_line = new DataTable();
+                DataTable myDTcmd_line = new();
                 myDTcmd_line.Load(myDBReadercmd_line);
                 string IDBikestring = myDTcmd_line.Rows[manager_Part.increment]["Bikes_idBikes"].ToString();
                 int IDBike = Int32.Parse(IDBikestring);
-                IDBike = IDBike - 1;
+                IDBike--;
 
                 myDBReadercmd_line.Close();
                 myDBReadercmd_line = null;
@@ -215,7 +224,7 @@ namespace Prettybike
                 //MessageBox.Show("test 3");
                 //Reader Bikes
                 MySqlDataReader myDBReaderBikes = myCmd_Bikes.ExecuteReader();
-                DataTable myDTbikes = new DataTable();
+                DataTable myDTbikes = new();
                 myDTbikes.Load(myDBReaderBikes);
 
 
@@ -258,7 +267,7 @@ namespace Prettybike
 
 
 
-        private void btn_login_builder_Click(object sender, EventArgs e)
+        private void Btn_login_builder_Click(object sender, EventArgs e)
         {
             //Quel builder a ete selectionné?
             string selectedName = comboBox1.GetItemText(comboBox1.SelectedItem);
@@ -266,7 +275,7 @@ namespace Prettybike
             string selectedVal = comboBox1.GetItemText(comboBox1.SelectedValue);
             //MessageBox.Show(selecteVal);
 
-            Builder_home homepage_Part = new Builder_home(selectedName, selectedVal);
+            Builder_home homepage_Part = new(selectedName, selectedVal);
             homepage_Part.Show();
 
             this.Hide();
@@ -274,7 +283,7 @@ namespace Prettybike
 
 
 
-            MySqlConnection myConnection = new MySqlConnection("database = New_db; server = pat.infolab.ecam.be;port = 63345; user = admin; pwd = prettybyke2");
+            MySqlConnection myConnection = new("database = New_db; server = pat.infolab.ecam.be;port = 63345; user = admin; pwd = prettybyke2");
             try
             {
                 myConnection.Open();
@@ -287,12 +296,12 @@ namespace Prettybike
                 String QueryWorkingDaysHasBikes = "SELECT * FROM Working_Day_has_Bikes";
 
 
-                MySqlCommand myCmd_Client = new MySqlCommand(QueryRepres, myConnection);
-                MySqlCommand myCmd_Order = new MySqlCommand(QueryCommand, myConnection);
-                MySqlCommand myCmd_Builder = new MySqlCommand(QueryBuilders, myConnection);
-                MySqlCommand myCmd_cmd_line = new MySqlCommand(Querycmd_line, myConnection);
-                MySqlCommand myCmd_Bikes = new MySqlCommand(QueryBikes, myConnection);
-                MySqlCommand myCmd_WorkingDaysHasBikes = new MySqlCommand(QueryWorkingDaysHasBikes, myConnection);
+                MySqlCommand myCmd_Client = new(QueryRepres, myConnection);
+                MySqlCommand myCmd_Order = new(QueryCommand, myConnection);
+                MySqlCommand myCmd_Builder = new(QueryBuilders, myConnection);
+                MySqlCommand myCmd_cmd_line = new(Querycmd_line, myConnection);
+                MySqlCommand myCmd_Bikes = new(QueryBikes, myConnection);
+                MySqlCommand myCmd_WorkingDaysHasBikes = new(QueryWorkingDaysHasBikes, myConnection);
 
 
 
@@ -302,21 +311,21 @@ namespace Prettybike
 
                 //Reader Builder
                 MySqlDataReader myDBReaderBuilder = myCmd_Builder.ExecuteReader();
-                DataTable myDTBuilders = new DataTable();
+                DataTable myDTBuilders = new();
                 myDTBuilders.Load(myDBReaderBuilder);
                 myDBReaderBuilder.Close();
                 myDBReaderBuilder = null;
 
                 // Reader Working Days has bikes
                 MySqlDataReader myDBReaderWorkingDaysHasBikes = myCmd_WorkingDaysHasBikes.ExecuteReader();
-                DataTable myDTWorkingDaysHasBikes = new DataTable();
+                DataTable myDTWorkingDaysHasBikes = new();
                 myDTWorkingDaysHasBikes.Load(myDBReaderWorkingDaysHasBikes);
                 myDBReaderWorkingDaysHasBikes.Close();
                 myDBReaderWorkingDaysHasBikes = null;
 
                 // Reader Bikes
                 MySqlDataReader myDBReaderBikes = myCmd_Bikes.ExecuteReader();
-                DataTable myDTBikes = new DataTable();
+                DataTable myDTBikes = new();
                 myDTBikes.Load(myDBReaderBikes);
                 myDBReaderBikes.Close();
                 myDBReaderBikes = null;
@@ -367,16 +376,16 @@ namespace Prettybike
             }
         }
 
-        private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
+        private void ComboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
         {
 
         }
 
-        private void btn_back_Click(object sender, EventArgs e)
+        private void Btn_back_Click(object sender, EventArgs e)
         {   
             
             this.Close();
-            Homepage homepage = new Homepage();
+            Homepage homepage = new();
             homepage.Show();
 
             
