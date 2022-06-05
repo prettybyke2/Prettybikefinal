@@ -46,7 +46,7 @@
             this.piece1.Size = new System.Drawing.Size(52, 21);
             this.piece1.TabIndex = 0;
             this.piece1.Text = "label1";
-            this.piece1.Click += new System.EventHandler(this.piece1_Click);
+            this.piece1.Click += new System.EventHandler(this.Piece1_Click);
             // 
             // btn_Back_Builderhome
             // 
@@ -56,7 +56,7 @@
             this.btn_Back_Builderhome.TabIndex = 1;
             this.btn_Back_Builderhome.Text = "Back";
             this.btn_Back_Builderhome.UseVisualStyleBackColor = true;
-            this.btn_Back_Builderhome.Click += new System.EventHandler(this.button2_Click);
+            this.btn_Back_Builderhome.Click += new System.EventHandler(this.Button2_Click);
             // 
             // label2
             // 
@@ -67,7 +67,7 @@
             this.label2.Size = new System.Drawing.Size(52, 21);
             this.label2.TabIndex = 2;
             this.label2.Text = "label2";
-            this.label2.Click += new System.EventHandler(this.label1_Click_1);
+            this.label2.Click += new System.EventHandler(this.Label1_Click_1);
             // 
             // label3
             // 
@@ -78,7 +78,7 @@
             this.label3.Size = new System.Drawing.Size(52, 21);
             this.label3.TabIndex = 3;
             this.label3.Text = "label3";
-            this.label3.Click += new System.EventHandler(this.label1_Click_2);
+            this.label3.Click += new System.EventHandler(this.Label1_Click_2);
             // 
             // label4
             // 
@@ -99,7 +99,7 @@
             this.label5.Size = new System.Drawing.Size(52, 21);
             this.label5.TabIndex = 5;
             this.label5.Text = "label5";
-            this.label5.Click += new System.EventHandler(this.label1_Click_3);
+            this.label5.Click += new System.EventHandler(this.Label1_Click_3);
             // 
             // title1
             // 
@@ -110,7 +110,7 @@
             this.title1.Size = new System.Drawing.Size(204, 46);
             this.title1.TabIndex = 6;
             this.title1.Text = "BIKES PARTS";
-            this.title1.Click += new System.EventHandler(this.label1_Click_4);
+            this.title1.Click += new System.EventHandler(this.Label1_Click_4);
             // 
             // Pieces_builder
             // 

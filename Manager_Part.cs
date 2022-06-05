@@ -62,26 +62,42 @@ namespace Prettybike
 
         private void btn_newOrder_Click(object sender, EventArgs e)
         {
-            increment++;
+
+            
             Manager_Part manager_Part = new Manager_Part();
             Newpage(manager_Part);
 
             DateOrders = this.dateTP_Manager_from.Value.ToString("yyyy-MM-dd");
-            MessageBox.Show(DateOrders);
+            //MessageBox.Show(DateOrders);
             BuilderIDs = this.combobox_Builders.SelectedIndex + 1;
             int TotalAmount = Int32.Parse(this.lbl_TotalAmount_Generate.Text);
             int AmountSelected = Int32.Parse(this.txtbox_amount.Text);
             SelectedAmount = AmountSelected;
             AmountLeft = TotalAmount - AmountSelected;
-            //MessageBox.Show(DateOrders[0].ToString());
-            MessageBox.Show("amount Left : ");
-            MessageBox.Show(AmountLeft.ToString());
 
-            MessageBox.Show("date picked : ");
-            MessageBox.Show(DateOrders.ToString());
+            manager_Part.lbl_amount_left_generate.Text = AmountLeft.ToString();
+            if (AmountLeft == 0)
+            {
+                increment++;
+            }
+            else if (AmountLeft < 0)
+            {
+                MessageBox.Show("Error : you selected too much bikes");
+            }
+            else
+            {
 
-            MessageBox.Show("Builder ID : ");
-            MessageBox.Show(BuilderIDs.ToString());
+            }
+
+            ////MessageBox.Show(DateOrders[0].ToString());
+            //MessageBox.Show("amount Left : ");
+            //MessageBox.Show(AmountLeft.ToString());
+
+            //MessageBox.Show("date picked : ");
+            //MessageBox.Show(DateOrders.ToString());
+
+            //MessageBox.Show("Builder ID : ");
+            //MessageBox.Show(BuilderIDs.ToString());
 
 
 
@@ -107,16 +123,11 @@ namespace Prettybike
         public void Newpage(Manager_Part manager_Part)
         {
             
-           
-            
-
-
-            
             
             
             string connectionString = "database = New_db; server = pat.infolab.ecam.be;port = 63345; user = admin; pwd = prettybyke2";
 
-
+            
             
 
 
