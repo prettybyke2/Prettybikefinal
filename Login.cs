@@ -17,12 +17,7 @@ namespace Prettybike
         public Login()
         {
             InitializeComponent();
-            //amounts.Add(200);
-            //amounts.Add(300);
-            //amounts.Add(150);
-            //orders.Add("vélos noirs City 26''");
-            //orders.Add("vélos jaunes City 28''");
-            //orders.Add("vélos bleus City 28''");
+            
         }
 
         private static List<string> orders = new();
@@ -116,8 +111,11 @@ namespace Prettybike
         private void btn_login_Click(object sender, EventArgs e)
         {
 
-            ManagerPart_Newpage();
-
+            // ManagerPart_Newpage();
+            Manager_Part manager_Part = new Manager_Part();
+            manager_Part.Newpage(manager_Part);
+            manager_Part.Show();
+            this.Hide();
 
         }
 
@@ -134,139 +132,7 @@ namespace Prettybike
         }
 
         
-        private void ManagerPart_Newpage()
-        {
-
-            Manager_Part manager_Part = new();
-            manager_Part.Show();
-
-            this.Hide();
-
-
-
-
-            MySqlConnection myConnection = new("database = New_db; server = pat.infolab.ecam.be;port = 63345; user = admin; pwd = prettybyke2");
-            try
-            {
-                myConnection.Open();
-                String QueryRepres = "SELECT * FROM Representative";
-                String QueryCommand = "SELECT* FROM Command";
-                String QueryBuilders = "SELECT * FROM Builder";
-                String Querycmd_line = "SELECT * FROM cmd_line";
-                String QueryBikes = "SELECT * FROM Bikes";
-
-
-                MySqlCommand myCmd_Client = new(QueryRepres, myConnection);
-                MySqlCommand myCmd_Order = new(QueryCommand, myConnection);
-                MySqlCommand myCmd_Builder = new(QueryBuilders, myConnection);
-                MySqlCommand myCmd_cmd_line = new(Querycmd_line, myConnection);
-                MySqlCommand myCmd_Bikes = new(QueryBikes, myConnection);
-
-
-
-
-                //Reader Command/Order
-                MySqlDataReader myDBReaderOrder = myCmd_Order.ExecuteReader();
-                DataTable myDTOrder = new();
-                myDTOrder.Load(myDBReaderOrder);
-                string IDClientstring = myDTOrder.Rows[manager_Part.increment]["Representative_id_rps"].ToString();
-                int IDClient = Int32.Parse(IDClientstring);
-                IDClient--;
-                myDBReaderOrder.Close();
-                myDBReaderOrder = null;
-
-
-                //Reader Client
-                MySqlDataReader myDBReaderClient = myCmd_Client.ExecuteReader();
-                DataTable myDTClients = new();
-                myDTClients.Load(myDBReaderClient);
-                myDBReaderClient.Close();
-                myDBReaderClient = null;
-
-
-
-                //Reader Builder
-                MySqlDataReader myDBReaderBuilder = myCmd_Builder.ExecuteReader();
-                DataTable myDTBuilders = new();
-                myDTBuilders.Load(myDBReaderBuilder);
-
-                int incr = 0;
-                while (incr < myDTBuilders.Rows.Count)
-                {
-                    //foreach (DataColumn col in myDTBuilders.Columns)
-                    //{
-
-
-                    manager_Part.combobox_Builders.Items.Add(myDTBuilders.Rows[incr]["Builder_name"].ToString());
-                    //}
-                    incr += 1;
-
-                }
-
-                //string IDBuilderstring = myDTBuilders.Rows[increm]["idBuilder"].ToString();
-                //Manager_Part.BuilderIDs.Add(Int32.Parse(IDBuilderstring));
-
-
-                myDBReaderBuilder.Close();
-                myDBReaderBuilder = null;
-
-                //Reader Cmd_line
-                MySqlDataReader myDBReadercmd_line = myCmd_cmd_line.ExecuteReader();
-                DataTable myDTcmd_line = new();
-                myDTcmd_line.Load(myDBReadercmd_line);
-                string IDBikestring = myDTcmd_line.Rows[manager_Part.increment]["Bikes_idBikes"].ToString();
-                int IDBike = Int32.Parse(IDBikestring);
-                IDBike--;
-
-                myDBReadercmd_line.Close();
-                myDBReadercmd_line = null;
-
-                //MessageBox.Show("test 3");
-                //Reader Bikes
-                MySqlDataReader myDBReaderBikes = myCmd_Bikes.ExecuteReader();
-                DataTable myDTbikes = new();
-                myDTbikes.Load(myDBReaderBikes);
-
-
-                myDBReaderBikes.Close();
-                myDBReaderBikes = null;
-
-                ;
-                //MessageBox.Show("test 4");
-
-
-
-                //Define inner texts
-                manager_Part.lbl_orderdate.Text = myDTOrder.Rows[manager_Part.increment]["date_cmd"].ToString();
-                manager_Part.lbl_representative.Text = myDTClients.Rows[IDClient]["Company_Name"].ToString();
-                manager_Part.lbl_TotalAmount_Generate.Text = myDTcmd_line.Rows[manager_Part.increment]["qty"].ToString();
-                manager_Part.lbl_model.Text = myDTbikes.Rows[IDBike]["Bikes_Model"].ToString();
-                manager_Part.lbl_color.Text = myDTbikes.Rows[IDBike]["Bikes_Color"].ToString();
-                manager_Part.lbl_size.Text = myDTbikes.Rows[IDBike]["Bikes_Size"].ToString();
-
-
-
-
-
-
-
-
-            }
-            catch
-            {
-                MessageBox.Show("Non connecté");
-            }
-
-
-
-
-
-
-
-        }
-
-
-
+        
         private void btn_login_builder_Click(object sender, EventArgs e)
         {
             //Quel builder a ete selectionné?
@@ -374,6 +240,7 @@ namespace Prettybike
             {
                 MessageBox.Show("Non connecté");
             }
+
         }
 
         private void comboBox1_SelectedIndexChanged_1(object sender, EventArgs e)
@@ -389,6 +256,11 @@ namespace Prettybike
             homepage.Show();
 
             
+        }
+
+        private void Login_Load(object sender, EventArgs e)
+        {
+
         }
     }
     public class CheckedBoxListProps

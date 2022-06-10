@@ -63,6 +63,7 @@
             // 
             this.lbl_Identif.AutoSize = true;
             this.lbl_Identif.Font = new System.Drawing.Font("Segoe UI", 36F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.lbl_Identif.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lbl_Identif.Location = new System.Drawing.Point(151, 57);
             this.lbl_Identif.Name = "lbl_Identif";
             this.lbl_Identif.Size = new System.Drawing.Size(497, 96);
@@ -75,7 +76,8 @@
             // 
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.label1.Location = new System.Drawing.Point(151, 183);
+            this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.label1.Location = new System.Drawing.Point(146, 165);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(116, 32);
             this.label1.TabIndex = 15;
@@ -86,6 +88,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.label2.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.label2.Location = new System.Drawing.Point(501, 165);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(96, 32);
@@ -118,9 +121,11 @@
             // 
             // btn_back
             // 
-            this.btn_back.Location = new System.Drawing.Point(141, 351);
+            this.btn_back.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_back.ForeColor = System.Drawing.SystemColors.ActiveCaption;
+            this.btn_back.Location = new System.Drawing.Point(65, 365);
             this.btn_back.Name = "btn_back";
-            this.btn_back.Size = new System.Drawing.Size(112, 34);
+            this.btn_back.Size = new System.Drawing.Size(112, 50);
             this.btn_back.TabIndex = 19;
             this.btn_back.Text = "BACK";
             this.btn_back.UseVisualStyleBackColor = true;
@@ -130,6 +135,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.SteelBlue;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btn_back);
             this.Controls.Add(this.comboBox1);
@@ -140,7 +146,8 @@
             this.Controls.Add(this.btn_login_manager);
             this.Controls.Add(this.lbl_Identif);
             this.Name = "Login";
-            this.Text = "Form1";
+            this.Text = "q";
+            this.Load += new System.EventHandler(this.Login_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

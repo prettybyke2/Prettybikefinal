@@ -77,9 +77,10 @@
             // 
             // btn_newOrder
             // 
-            this.btn_newOrder.Location = new System.Drawing.Point(587, 321);
+            this.btn_newOrder.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_newOrder.Location = new System.Drawing.Point(571, 313);
             this.btn_newOrder.Name = "btn_newOrder";
-            this.btn_newOrder.Size = new System.Drawing.Size(112, 34);
+            this.btn_newOrder.Size = new System.Drawing.Size(203, 94);
             this.btn_newOrder.TabIndex = 36;
             this.btn_newOrder.Text = "Validate";
             this.btn_newOrder.UseVisualStyleBackColor = true;
@@ -175,10 +176,11 @@
             // lbl_builder
             // 
             this.lbl_builder.AutoSize = true;
+            this.lbl_builder.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lbl_builder.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lbl_builder.Location = new System.Drawing.Point(587, 84);
+            this.lbl_builder.Location = new System.Drawing.Point(588, 77);
             this.lbl_builder.Name = "lbl_builder";
-            this.lbl_builder.Size = new System.Drawing.Size(74, 25);
+            this.lbl_builder.Size = new System.Drawing.Size(101, 32);
             this.lbl_builder.TabIndex = 22;
             this.lbl_builder.Text = "Builders";
             // 
@@ -195,9 +197,10 @@
             // lbl_customer
             // 
             this.lbl_customer.AutoSize = true;
+            this.lbl_customer.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lbl_customer.Location = new System.Drawing.Point(39, 84);
             this.lbl_customer.Name = "lbl_customer";
-            this.lbl_customer.Size = new System.Drawing.Size(98, 25);
+            this.lbl_customer.Size = new System.Drawing.Size(102, 25);
             this.lbl_customer.TabIndex = 39;
             this.lbl_customer.Text = "Customer :";
             // 
@@ -229,9 +232,10 @@
             // lbl_Totalamount_display
             // 
             this.lbl_Totalamount_display.AutoSize = true;
+            this.lbl_Totalamount_display.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lbl_Totalamount_display.Location = new System.Drawing.Point(894, 22);
             this.lbl_Totalamount_display.Name = "lbl_Totalamount_display";
-            this.lbl_Totalamount_display.Size = new System.Drawing.Size(119, 25);
+            this.lbl_Totalamount_display.Size = new System.Drawing.Size(135, 28);
             this.lbl_Totalamount_display.TabIndex = 43;
             this.lbl_Totalamount_display.Text = "Total Amount";
             // 
@@ -246,9 +250,10 @@
             // lbl_orderdate_display
             // 
             this.lbl_orderdate_display.AutoSize = true;
+            this.lbl_orderdate_display.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lbl_orderdate_display.Location = new System.Drawing.Point(369, 41);
             this.lbl_orderdate_display.Name = "lbl_orderdate_display";
-            this.lbl_orderdate_display.Size = new System.Drawing.Size(158, 25);
+            this.lbl_orderdate_display.Size = new System.Drawing.Size(165, 25);
             this.lbl_orderdate_display.TabIndex = 45;
             this.lbl_orderdate_display.Text = "Date of the order :";
             // 
@@ -270,9 +275,10 @@
             // 
             // btn_back
             // 
-            this.btn_back.Location = new System.Drawing.Point(172, 533);
+            this.btn_back.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_back.Location = new System.Drawing.Point(172, 458);
             this.btn_back.Name = "btn_back";
-            this.btn_back.Size = new System.Drawing.Size(112, 34);
+            this.btn_back.Size = new System.Drawing.Size(173, 109);
             this.btn_back.TabIndex = 48;
             this.btn_back.Text = "BACK";
             this.btn_back.UseVisualStyleBackColor = true;
@@ -281,10 +287,11 @@
             // lbl_amount_left_display
             // 
             this.lbl_amount_left_display.AutoSize = true;
+            this.lbl_amount_left_display.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lbl_amount_left_display.ForeColor = System.Drawing.SystemColors.Control;
-            this.lbl_amount_left_display.Location = new System.Drawing.Point(897, 99);
+            this.lbl_amount_left_display.Location = new System.Drawing.Point(897, 84);
             this.lbl_amount_left_display.Name = "lbl_amount_left_display";
-            this.lbl_amount_left_display.Size = new System.Drawing.Size(116, 25);
+            this.lbl_amount_left_display.Size = new System.Drawing.Size(133, 28);
             this.lbl_amount_left_display.TabIndex = 49;
             this.lbl_amount_left_display.Text = "Amount left :";
             // 

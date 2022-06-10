@@ -63,12 +63,10 @@ namespace Prettybike
         private void btn_newOrder_Click(object sender, EventArgs e)
         {
 
-            
+
             Manager_Part manager_Part = new Manager_Part();
-            Newpage(manager_Part);
 
             DateOrders = this.dateTP_Manager_from.Value.ToString("yyyy-MM-dd");
-            //MessageBox.Show(DateOrders);
             BuilderIDs = this.combobox_Builders.SelectedIndex + 1;
             int TotalAmount = Int32.Parse(this.lbl_TotalAmount_Generate.Text);
             int AmountSelected = Int32.Parse(this.txtbox_amount.Text);
@@ -86,27 +84,17 @@ namespace Prettybike
             }
             else
             {
-
+                
             }
-
-            ////MessageBox.Show(DateOrders[0].ToString());
-            //MessageBox.Show("amount Left : ");
-            //MessageBox.Show(AmountLeft.ToString());
-
-            //MessageBox.Show("date picked : ");
-            //MessageBox.Show(DateOrders.ToString());
-
-            //MessageBox.Show("Builder ID : ");
-            //MessageBox.Show(BuilderIDs.ToString());
-
-
+            Newpage(manager_Part);
 
 
 
             this.Hide();
-            
+
             manager_Part.Show();
             sendToDB();
+
 
 
         }
@@ -128,8 +116,6 @@ namespace Prettybike
             string connectionString = "database = New_db; server = pat.infolab.ecam.be;port = 63345; user = admin; pwd = prettybyke2";
 
             
-            
-
 
             //SQL Connection Part
             MySqlConnection myConnection = new MySqlConnection(connectionString);
@@ -138,7 +124,7 @@ namespace Prettybike
                 myConnection.Open();
 
 
-                MessageBox.Show("Connecté");
+                
                 
                 //Queries
                 String QueryRepres = "SELECT * FROM Representative";
@@ -167,8 +153,8 @@ namespace Prettybike
                 int IDClient = Int32.Parse(IDClientstring);
                 ClientID = IDClient;
                 string IDOrderstring = myDTOrder.Rows[increment]["idCommand"].ToString();
-                int IDOrder = Int32.Parse(IDOrderstring);
-                OrderID = IDOrder;
+                OrderID = Int32.Parse(IDOrderstring);
+                
                 IDClient = IDClient - 1;
                 myDBReaderOrder.Close();
                 myDBReaderOrder = null;
@@ -190,12 +176,9 @@ namespace Prettybike
                 int incr = 0;
                 while (incr < myDTBuilders.Rows.Count)
                 {
-                    //foreach (DataColumn col in myDTBuilders.Columns)
-                    //{
-
-
+                    
                     manager_Part.combobox_Builders.Items.Add(myDTBuilders.Rows[incr]["Builder_name"].ToString());
-                    //}
+                    
                     incr += 1;
 
                 }
@@ -212,10 +195,8 @@ namespace Prettybike
                 DataTable myDTcmd_line = new DataTable();
                 myDTcmd_line.Load(myDBReadercmd_line);
                 string IDBikestring = myDTcmd_line.Rows[increment]["Bikes_idBikes"].ToString();
-                int IDBike = Int32.Parse(IDBikestring);
-                
-                IDBike = IDBike -1;
-                BikeID = IDBike;
+                int IDBike = Int32.Parse(IDBikestring);              
+                BikeID = IDBike - 1;
 
                 myDBReadercmd_line.Close();
                 myDBReadercmd_line = null;
@@ -239,7 +220,6 @@ namespace Prettybike
 
                 //Define inner texts
                 manager_Part.lbl_orderdate.Text = myDTOrder.Rows[increment]["date_cmd"].ToString();
-
                 manager_Part.lbl_representative.Text = myDTClients.Rows[IDClient]["Company_Name"].ToString();
                 manager_Part.lbl_TotalAmount_Generate.Text = myDTcmd_line.Rows[increment]["qty"].ToString();
                 manager_Part.lbl_model.Text = myDTbikes.Rows[IDBike]["Bikes_Model"].ToString();
@@ -261,6 +241,7 @@ namespace Prettybike
         public void sendToDB()
         {
 
+            //Connection with db
 
             string connectionString = "database = New_db; server = pat.infolab.ecam.be;port = 63345; user = admin; pwd = prettybyke2";
 
@@ -271,16 +252,7 @@ namespace Prettybike
 
 
 
-            //MessageBox.Show("test");
-            //MessageBox.Show(DateOrders.ToString());
-            //MessageBox.Show(BuilderIDs.ToString());
-            //MessageBox.Show(increment.ToString());
-            //MessageBox.Show(BuilderID.ToString());
-            //MessageBox.Show(BikeID.ToString());
-            //MessageBox.Show(OrderID.ToString());
-            //MessageBox.Show(ClientID.ToString());
-
-            
+            //Queries
             cmd_Working_Day.CommandText = "INSERT INTO Working_Day (Date, Builder_idBuilder) VALUES ('" + DateOrders +"','" + BuilderIDs + "' )";
             cmd_Working_Day_has_bikes.CommandText = "INSERT INTO Working_Day_has_Bikes (Working_Day_Date, Working_Day_Builder_idBuilder, Bikes_idBikes, Command_idCommand, Command_Representative_id_rps,IsDone ) VALUES ('" + DateOrders + "', '" + BuilderIDs + "','" + BikeID + "' ,'" + OrderID + "','" + ClientID + "', 0 )";
 
@@ -299,14 +271,14 @@ namespace Prettybike
             try
             {
                 int aff = cmd_Working_Day.ExecuteNonQuery();
-                MessageBox.Show(aff + " rows were affected by cmd 1");
+                
 
                 while (SelectedAmount >0)
                 {
                     
                     
                     int aff2 = cmd_Working_Day_has_bikes.ExecuteNonQuery();
-                    MessageBox.Show(aff2 + " rows were affected by cmd 2");
+                    
                     
                     SelectedAmount -= 1;
                     
@@ -317,7 +289,7 @@ namespace Prettybike
             }
             catch (Exception ex)
             {
-                MessageBox.Show(ex.ToString());
+                
                 Console.WriteLine(ex.ToString());   
             }
             finally
