@@ -78,7 +78,6 @@ namespace Prettybike
                 AmountLeft = TotalAmount - SelectedAmount;
                 First = false;
             }
-            MessageBox.Show(AmountLeft.ToString());
             this.lbl_amount_left_generate.Text = AmountLeft.ToString();
             sendToDB();
         }
@@ -299,7 +298,6 @@ namespace Prettybike
                     
                     
                     int aff2 = cmd_Working_Day_has_bikes.ExecuteNonQuery();
-                    MessageBox.Show(SelectedAmount.ToString());
                     
                     SelectedAmount -= 1;
                     
