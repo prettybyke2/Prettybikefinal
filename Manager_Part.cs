@@ -65,7 +65,7 @@ namespace Prettybike
                 {
                     increment_Cmd_line++;
                     First = true;
-                    MessageBox.Show("ok");
+                    
                     Manager_Part manager_Part = new Manager_Part();
                     Newpage(manager_Part);
 
@@ -86,11 +86,11 @@ namespace Prettybike
                 {
                     increment_Cmd_line++;
                     First = true;
-                    MessageBox.Show("ok");
+                    
                     Manager_Part manager_Part = new Manager_Part();
                     Newpage(manager_Part);
 
-
+                    
                     this.Hide();
 
                     manager_Part.Show();
@@ -112,7 +112,7 @@ namespace Prettybike
           
             if (AmountLeft == 0)
             {
-                
+                increment_Cmd_line += 2;
                 increment_Cmd++;
                 Manager_Part manager_Part = new Manager_Part();
                 Newpage(manager_Part);
