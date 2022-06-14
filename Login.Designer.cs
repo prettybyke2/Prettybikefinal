@@ -77,7 +77,7 @@
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.label1.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.label1.Location = new System.Drawing.Point(146, 165);
+            this.label1.Location = new System.Drawing.Point(146, 178);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(116, 32);
             this.label1.TabIndex = 15;
@@ -112,7 +112,7 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(501, 208);
+            this.comboBox1.Location = new System.Drawing.Point(477, 211);
             this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(171, 33);
@@ -123,7 +123,7 @@
             // 
             this.btn_back.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.btn_back.ForeColor = System.Drawing.SystemColors.ActiveCaption;
-            this.btn_back.Location = new System.Drawing.Point(65, 365);
+            this.btn_back.Location = new System.Drawing.Point(43, 355);
             this.btn_back.Name = "btn_back";
             this.btn_back.Size = new System.Drawing.Size(112, 50);
             this.btn_back.TabIndex = 19;
@@ -146,7 +146,7 @@
             this.Controls.Add(this.btn_login_manager);
             this.Controls.Add(this.lbl_Identif);
             this.Name = "Login";
-            this.Text = "q";
+            this.Text = "Login";
             this.Load += new System.EventHandler(this.Login_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

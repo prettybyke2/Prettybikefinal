@@ -47,10 +47,9 @@
             // lbl_basket
             // 
             this.lbl_basket.AutoSize = true;
-            this.lbl_basket.Location = new System.Drawing.Point(8, 5);
-            this.lbl_basket.Margin = new System.Windows.Forms.Padding(2, 0, 2, 0);
+            this.lbl_basket.Location = new System.Drawing.Point(11, 8);
             this.lbl_basket.Name = "lbl_basket";
-            this.lbl_basket.Size = new System.Drawing.Size(41, 15);
+            this.lbl_basket.Size = new System.Drawing.Size(63, 25);
             this.lbl_basket.TabIndex = 0;
             this.lbl_basket.Text = "Basket";
             // 
@@ -64,9 +63,10 @@
             this.columnHeader5});
             this.listView1.Items.AddRange(new System.Windows.Forms.ListViewItem[] {
             listViewItem1});
-            this.listView1.Location = new System.Drawing.Point(24, 23);
+            this.listView1.Location = new System.Drawing.Point(34, 38);
+            this.listView1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(523, 188);
+            this.listView1.Size = new System.Drawing.Size(745, 311);
             this.listView1.TabIndex = 11;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -100,9 +100,10 @@
             // btn_validate
             // 
             this.btn_validate.Font = new System.Drawing.Font("Segoe UI", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.btn_validate.Location = new System.Drawing.Point(441, 235);
+            this.btn_validate.Location = new System.Drawing.Point(630, 392);
+            this.btn_validate.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_validate.Name = "btn_validate";
-            this.btn_validate.Size = new System.Drawing.Size(110, 29);
+            this.btn_validate.Size = new System.Drawing.Size(157, 48);
             this.btn_validate.TabIndex = 12;
             this.btn_validate.Text = "VALIDATE";
             this.btn_validate.UseVisualStyleBackColor = true;
@@ -117,9 +118,10 @@
             this.comboBox2.Items.AddRange(new object[] {
             "Decatlon",
             "Small store"});
-            this.comboBox2.Location = new System.Drawing.Point(209, 242);
+            this.comboBox2.Location = new System.Drawing.Point(299, 403);
+            this.comboBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(115, 23);
+            this.comboBox2.Size = new System.Drawing.Size(163, 33);
             this.comboBox2.TabIndex = 13;
             this.comboBox2.Text = "Adress";
             // 
@@ -129,17 +131,19 @@
             this.comboBox1.Items.AddRange(new object[] {
             "Decatlon",
             "Small store"});
-            this.comboBox1.Location = new System.Drawing.Point(81, 242);
+            this.comboBox1.Location = new System.Drawing.Point(116, 403);
+            this.comboBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(115, 23);
+            this.comboBox1.Size = new System.Drawing.Size(163, 33);
             this.comboBox1.TabIndex = 14;
             this.comboBox1.Text = "Company name";
             // 
             // btn_back_panier
             // 
-            this.btn_back_panier.Location = new System.Drawing.Point(8, 242);
+            this.btn_back_panier.Location = new System.Drawing.Point(11, 403);
+            this.btn_back_panier.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.btn_back_panier.Name = "btn_back_panier";
-            this.btn_back_panier.Size = new System.Drawing.Size(60, 23);
+            this.btn_back_panier.Size = new System.Drawing.Size(86, 38);
             this.btn_back_panier.TabIndex = 15;
             this.btn_back_panier.Text = "Back";
             this.btn_back_panier.UseVisualStyleBackColor = true;
@@ -148,9 +152,10 @@
             // 
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label3.Location = new System.Drawing.Point(338, 217);
+            this.label3.Location = new System.Drawing.Point(483, 362);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(49, 21);
+            this.label3.Size = new System.Drawing.Size(77, 32);
             this.label3.TabIndex = 16;
             this.label3.Text = "Total :";
             // 
@@ -158,17 +163,18 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point);
-            this.label2.Location = new System.Drawing.Point(398, 217);
+            this.label2.Location = new System.Drawing.Point(569, 362);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(32, 21);
+            this.label2.Size = new System.Drawing.Size(47, 32);
             this.label2.TabIndex = 17;
             this.label2.Text = "0 €";
             // 
             // Basket
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(560, 270);
+            this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.btn_back_panier);
@@ -177,9 +183,8 @@
             this.Controls.Add(this.btn_validate);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.lbl_basket);
-            this.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
             this.Name = "Basket";
-            this.Text = "Form2";
+            this.Text = "Basket";
             this.Load += new System.EventHandler(this.Basket_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

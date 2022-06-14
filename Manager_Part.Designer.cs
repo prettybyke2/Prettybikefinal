@@ -29,7 +29,6 @@
         private void InitializeComponent()
         {
             this.lbl_finished = new System.Windows.Forms.Label();
-            this.lbl_amt_left = new System.Windows.Forms.Label();
             this.btn_newOrder = new System.Windows.Forms.Button();
             this.lbl_order_review = new System.Windows.Forms.Label();
             this.lbl_ordercomfirm = new System.Windows.Forms.Label();
@@ -54,6 +53,7 @@
             this.btn_back = new System.Windows.Forms.Button();
             this.lbl_amount_left_display = new System.Windows.Forms.Label();
             this.lbl_amount_left_generate = new System.Windows.Forms.Label();
+            this.btn_validate_amt = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // lbl_finished
@@ -66,23 +66,15 @@
             this.lbl_finished.Size = new System.Drawing.Size(0, 28);
             this.lbl_finished.TabIndex = 38;
             // 
-            // lbl_amt_left
-            // 
-            this.lbl_amt_left.AutoSize = true;
-            this.lbl_amt_left.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lbl_amt_left.Location = new System.Drawing.Point(87, 129);
-            this.lbl_amt_left.Name = "lbl_amt_left";
-            this.lbl_amt_left.Size = new System.Drawing.Size(0, 25);
-            this.lbl_amt_left.TabIndex = 37;
-            // 
             // btn_newOrder
             // 
             this.btn_newOrder.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_newOrder.Location = new System.Drawing.Point(571, 313);
+            this.btn_newOrder.ForeColor = System.Drawing.Color.SteelBlue;
+            this.btn_newOrder.Location = new System.Drawing.Point(837, 458);
             this.btn_newOrder.Name = "btn_newOrder";
-            this.btn_newOrder.Size = new System.Drawing.Size(203, 94);
+            this.btn_newOrder.Size = new System.Drawing.Size(206, 146);
             this.btn_newOrder.TabIndex = 36;
-            this.btn_newOrder.Text = "Validate";
+            this.btn_newOrder.Text = "Validate Order";
             this.btn_newOrder.UseVisualStyleBackColor = true;
             this.btn_newOrder.Click += new System.EventHandler(this.btn_newOrder_Click);
             // 
@@ -99,7 +91,7 @@
             this.lbl_ordercomfirm.AutoSize = true;
             this.lbl_ordercomfirm.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lbl_ordercomfirm.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lbl_ordercomfirm.Location = new System.Drawing.Point(605, 278);
+            this.lbl_ordercomfirm.Location = new System.Drawing.Point(609, 485);
             this.lbl_ordercomfirm.Name = "lbl_ordercomfirm";
             this.lbl_ordercomfirm.Size = new System.Drawing.Size(0, 32);
             this.lbl_ordercomfirm.TabIndex = 34;
@@ -108,7 +100,7 @@
             // 
             this.lbl_From.AutoSize = true;
             this.lbl_From.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbl_From.Location = new System.Drawing.Point(172, 261);
+            this.lbl_From.Location = new System.Drawing.Point(444, 231);
             this.lbl_From.Name = "lbl_From";
             this.lbl_From.Size = new System.Drawing.Size(53, 25);
             this.lbl_From.TabIndex = 32;
@@ -119,10 +111,11 @@
             this.dateTP_Manager_from.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
+            this.dateTP_Manager_from.CalendarForeColor = System.Drawing.Color.SteelBlue;
             this.dateTP_Manager_from.CustomFormat = "dd-MM-yyyy";
-            this.dateTP_Manager_from.Location = new System.Drawing.Point(115, 321);
+            this.dateTP_Manager_from.Location = new System.Drawing.Point(444, 277);
             this.dateTP_Manager_from.Name = "dateTP_Manager_from";
-            this.dateTP_Manager_from.Size = new System.Drawing.Size(300, 31);
+            this.dateTP_Manager_from.Size = new System.Drawing.Size(310, 31);
             this.dateTP_Manager_from.TabIndex = 30;
             this.dateTP_Manager_from.ValueChanged += new System.EventHandler(this.dateTP_Manager_from_ValueChanged);
             // 
@@ -130,6 +123,7 @@
             // 
             this.lbl_ManagerName.AutoSize = true;
             this.lbl_ManagerName.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point);
+            this.lbl_ManagerName.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
             this.lbl_ManagerName.Location = new System.Drawing.Point(345, 45);
             this.lbl_ManagerName.Name = "lbl_ManagerName";
             this.lbl_ManagerName.Size = new System.Drawing.Size(0, 32);
@@ -137,7 +131,8 @@
             // 
             // txtbox_amount
             // 
-            this.txtbox_amount.Location = new System.Drawing.Point(785, 132);
+            this.txtbox_amount.ForeColor = System.Drawing.Color.SteelBlue;
+            this.txtbox_amount.Location = new System.Drawing.Point(24, 281);
             this.txtbox_amount.Name = "txtbox_amount";
             this.txtbox_amount.Size = new System.Drawing.Size(77, 31);
             this.txtbox_amount.TabIndex = 27;
@@ -145,8 +140,9 @@
             // 
             // combobox_Builders
             // 
+            this.combobox_Builders.ForeColor = System.Drawing.Color.SteelBlue;
             this.combobox_Builders.FormattingEnabled = true;
-            this.combobox_Builders.Location = new System.Drawing.Point(506, 130);
+            this.combobox_Builders.Location = new System.Drawing.Point(150, 277);
             this.combobox_Builders.Name = "combobox_Builders";
             this.combobox_Builders.Size = new System.Drawing.Size(246, 33);
             this.combobox_Builders.TabIndex = 26;
@@ -155,8 +151,8 @@
             // 
             this.lbl_Manager.AutoSize = true;
             this.lbl_Manager.Font = new System.Drawing.Font("Segoe UI Black", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lbl_Manager.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lbl_Manager.Location = new System.Drawing.Point(103, 22);
+            this.lbl_Manager.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbl_Manager.Location = new System.Drawing.Point(12, 13);
             this.lbl_Manager.Name = "lbl_Manager";
             this.lbl_Manager.Size = new System.Drawing.Size(200, 48);
             this.lbl_Manager.TabIndex = 24;
@@ -167,7 +163,7 @@
             // 
             this.lbl_Amount.AutoSize = true;
             this.lbl_Amount.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lbl_Amount.Location = new System.Drawing.Point(785, 84);
+            this.lbl_Amount.Location = new System.Drawing.Point(24, 225);
             this.lbl_Amount.Name = "lbl_Amount";
             this.lbl_Amount.Size = new System.Drawing.Size(77, 25);
             this.lbl_Amount.TabIndex = 23;
@@ -178,27 +174,28 @@
             this.lbl_builder.AutoSize = true;
             this.lbl_builder.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lbl_builder.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lbl_builder.Location = new System.Drawing.Point(588, 77);
+            this.lbl_builder.Location = new System.Drawing.Point(172, 219);
             this.lbl_builder.Name = "lbl_builder";
-            this.lbl_builder.Size = new System.Drawing.Size(101, 32);
+            this.lbl_builder.Size = new System.Drawing.Size(206, 32);
             this.lbl_builder.TabIndex = 22;
-            this.lbl_builder.Text = "Builders";
+            this.lbl_builder.Text = "Made by Builder :";
             // 
             // lbl_orders
             // 
             this.lbl_orders.AutoSize = true;
-            this.lbl_orders.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lbl_orders.Location = new System.Drawing.Point(189, 84);
+            this.lbl_orders.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbl_orders.Location = new System.Drawing.Point(189, 81);
             this.lbl_orders.Name = "lbl_orders";
-            this.lbl_orders.Size = new System.Drawing.Size(121, 25);
+            this.lbl_orders.Size = new System.Drawing.Size(166, 25);
             this.lbl_orders.TabIndex = 21;
-            this.lbl_orders.Text = "Current Order";
+            this.lbl_orders.Text = "Current Order Infos";
             // 
             // lbl_customer
             // 
             this.lbl_customer.AutoSize = true;
             this.lbl_customer.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lbl_customer.Location = new System.Drawing.Point(39, 84);
+            this.lbl_customer.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbl_customer.Location = new System.Drawing.Point(51, 81);
             this.lbl_customer.Name = "lbl_customer";
             this.lbl_customer.Size = new System.Drawing.Size(102, 25);
             this.lbl_customer.TabIndex = 39;
@@ -207,7 +204,8 @@
             // lbl_representative
             // 
             this.lbl_representative.AutoSize = true;
-            this.lbl_representative.Location = new System.Drawing.Point(51, 124);
+            this.lbl_representative.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbl_representative.Location = new System.Drawing.Point(51, 138);
             this.lbl_representative.Name = "lbl_representative";
             this.lbl_representative.Size = new System.Drawing.Size(0, 25);
             this.lbl_representative.TabIndex = 40;
@@ -215,7 +213,8 @@
             // lbl_model
             // 
             this.lbl_model.AutoSize = true;
-            this.lbl_model.Location = new System.Drawing.Point(212, 138);
+            this.lbl_model.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbl_model.Location = new System.Drawing.Point(189, 138);
             this.lbl_model.Name = "lbl_model";
             this.lbl_model.Size = new System.Drawing.Size(0, 25);
             this.lbl_model.TabIndex = 41;
@@ -224,7 +223,8 @@
             // lbl_TotalAmount_Generate
             // 
             this.lbl_TotalAmount_Generate.AutoSize = true;
-            this.lbl_TotalAmount_Generate.Location = new System.Drawing.Point(938, 52);
+            this.lbl_TotalAmount_Generate.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbl_TotalAmount_Generate.Location = new System.Drawing.Point(817, 135);
             this.lbl_TotalAmount_Generate.Name = "lbl_TotalAmount_Generate";
             this.lbl_TotalAmount_Generate.Size = new System.Drawing.Size(0, 25);
             this.lbl_TotalAmount_Generate.TabIndex = 42;
@@ -233,7 +233,8 @@
             // 
             this.lbl_Totalamount_display.AutoSize = true;
             this.lbl_Totalamount_display.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lbl_Totalamount_display.Location = new System.Drawing.Point(894, 22);
+            this.lbl_Totalamount_display.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbl_Totalamount_display.Location = new System.Drawing.Point(747, 78);
             this.lbl_Totalamount_display.Name = "lbl_Totalamount_display";
             this.lbl_Totalamount_display.Size = new System.Drawing.Size(135, 28);
             this.lbl_Totalamount_display.TabIndex = 43;
@@ -242,7 +243,8 @@
             // lbl_orderdate
             // 
             this.lbl_orderdate.AutoSize = true;
-            this.lbl_orderdate.Location = new System.Drawing.Point(661, 41);
+            this.lbl_orderdate.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbl_orderdate.Location = new System.Drawing.Point(515, 135);
             this.lbl_orderdate.Name = "lbl_orderdate";
             this.lbl_orderdate.Size = new System.Drawing.Size(0, 25);
             this.lbl_orderdate.TabIndex = 44;
@@ -251,7 +253,8 @@
             // 
             this.lbl_orderdate_display.AutoSize = true;
             this.lbl_orderdate_display.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lbl_orderdate_display.Location = new System.Drawing.Point(369, 41);
+            this.lbl_orderdate_display.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbl_orderdate_display.Location = new System.Drawing.Point(444, 78);
             this.lbl_orderdate_display.Name = "lbl_orderdate_display";
             this.lbl_orderdate_display.Size = new System.Drawing.Size(165, 25);
             this.lbl_orderdate_display.TabIndex = 45;
@@ -260,7 +263,8 @@
             // lbl_size
             // 
             this.lbl_size.AutoSize = true;
-            this.lbl_size.Location = new System.Drawing.Point(396, 138);
+            this.lbl_size.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbl_size.Location = new System.Drawing.Point(355, 138);
             this.lbl_size.Name = "lbl_size";
             this.lbl_size.Size = new System.Drawing.Size(0, 25);
             this.lbl_size.TabIndex = 46;
@@ -268,7 +272,8 @@
             // lbl_color
             // 
             this.lbl_color.AutoSize = true;
-            this.lbl_color.Location = new System.Drawing.Point(303, 138);
+            this.lbl_color.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbl_color.Location = new System.Drawing.Point(275, 138);
             this.lbl_color.Name = "lbl_color";
             this.lbl_color.Size = new System.Drawing.Size(0, 25);
             this.lbl_color.TabIndex = 47;
@@ -276,7 +281,7 @@
             // btn_back
             // 
             this.btn_back.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.btn_back.Location = new System.Drawing.Point(172, 458);
+            this.btn_back.Location = new System.Drawing.Point(39, 485);
             this.btn_back.Name = "btn_back";
             this.btn_back.Size = new System.Drawing.Size(173, 109);
             this.btn_back.TabIndex = 48;
@@ -288,8 +293,8 @@
             // 
             this.lbl_amount_left_display.AutoSize = true;
             this.lbl_amount_left_display.Font = new System.Drawing.Font("Segoe UI Semibold", 10F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lbl_amount_left_display.ForeColor = System.Drawing.SystemColors.Control;
-            this.lbl_amount_left_display.Location = new System.Drawing.Point(897, 84);
+            this.lbl_amount_left_display.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbl_amount_left_display.Location = new System.Drawing.Point(928, 78);
             this.lbl_amount_left_display.Name = "lbl_amount_left_display";
             this.lbl_amount_left_display.Size = new System.Drawing.Size(133, 28);
             this.lbl_amount_left_display.TabIndex = 49;
@@ -298,18 +303,32 @@
             // lbl_amount_left_generate
             // 
             this.lbl_amount_left_generate.AutoSize = true;
-            this.lbl_amount_left_generate.ForeColor = System.Drawing.SystemColors.Control;
-            this.lbl_amount_left_generate.Location = new System.Drawing.Point(949, 137);
+            this.lbl_amount_left_generate.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbl_amount_left_generate.Location = new System.Drawing.Point(1004, 135);
             this.lbl_amount_left_generate.Name = "lbl_amount_left_generate";
             this.lbl_amount_left_generate.Size = new System.Drawing.Size(0, 25);
             this.lbl_amount_left_generate.TabIndex = 50;
+            // 
+            // btn_validate_amt
+            // 
+            this.btn_validate_amt.BackColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.btn_validate_amt.Font = new System.Drawing.Font("Segoe UI", 16F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_validate_amt.ForeColor = System.Drawing.Color.Salmon;
+            this.btn_validate_amt.Location = new System.Drawing.Point(837, 278);
+            this.btn_validate_amt.Name = "btn_validate_amt";
+            this.btn_validate_amt.Size = new System.Drawing.Size(206, 139);
+            this.btn_validate_amt.TabIndex = 51;
+            this.btn_validate_amt.Text = "Validate Bikes";
+            this.btn_validate_amt.UseVisualStyleBackColor = false;
+            this.btn_validate_amt.Click += new System.EventHandler(this.btn_validate_amt_Click);
             // 
             // Manager_Part
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.SteelBlue;
-            this.ClientSize = new System.Drawing.Size(1622, 956);
+            this.ClientSize = new System.Drawing.Size(1091, 626);
+            this.Controls.Add(this.btn_validate_amt);
             this.Controls.Add(this.lbl_amount_left_generate);
             this.Controls.Add(this.lbl_amount_left_display);
             this.Controls.Add(this.btn_back);
@@ -323,7 +342,6 @@
             this.Controls.Add(this.lbl_representative);
             this.Controls.Add(this.lbl_customer);
             this.Controls.Add(this.lbl_finished);
-            this.Controls.Add(this.lbl_amt_left);
             this.Controls.Add(this.btn_newOrder);
             this.Controls.Add(this.lbl_order_review);
             this.Controls.Add(this.lbl_ordercomfirm);
@@ -337,7 +355,7 @@
             this.Controls.Add(this.lbl_builder);
             this.Controls.Add(this.lbl_orders);
             this.Name = "Manager_Part";
-            this.Text = "Amount Left :";
+            this.Text = "Manager Window";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -347,7 +365,6 @@
         #endregion
 
         private Label lbl_finished;
-        public Label lbl_amt_left;
         private Button btn_newOrder;
         private Label lbl_order_review;
         private Label lbl_ordercomfirm;
@@ -372,5 +389,6 @@
         private Button btn_back;
         private Label lbl_amount_left_display;
         private Label lbl_amount_left_generate;
+        private Button btn_validate_amt;
     }
 }
