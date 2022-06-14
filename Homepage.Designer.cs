@@ -37,17 +37,20 @@
             // 
             this.lbl_Welcome.AutoSize = true;
             this.lbl_Welcome.Font = new System.Drawing.Font("Segoe UI", 26F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
-            this.lbl_Welcome.Location = new System.Drawing.Point(250, 101);
+            this.lbl_Welcome.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
+            this.lbl_Welcome.Location = new System.Drawing.Point(94, 108);
             this.lbl_Welcome.Name = "lbl_Welcome";
-            this.lbl_Welcome.Size = new System.Drawing.Size(257, 70);
+            this.lbl_Welcome.Size = new System.Drawing.Size(589, 70);
             this.lbl_Welcome.TabIndex = 0;
-            this.lbl_Welcome.Text = "Welcome";
+            this.lbl_Welcome.Text = "Welcome to Prettybike";
             // 
             // btn_Start
             // 
+            this.btn_Start.Font = new System.Drawing.Font("Segoe UI", 18F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_Start.ForeColor = System.Drawing.Color.DarkCyan;
             this.btn_Start.Location = new System.Drawing.Point(250, 227);
             this.btn_Start.Name = "btn_Start";
-            this.btn_Start.Size = new System.Drawing.Size(246, 34);
+            this.btn_Start.Size = new System.Drawing.Size(257, 142);
             this.btn_Start.TabIndex = 1;
             this.btn_Start.Text = "Take an order";
             this.btn_Start.UseVisualStyleBackColor = true;
@@ -55,11 +58,13 @@
             // 
             // btn_employee
             // 
+            this.btn_employee.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
+            this.btn_employee.ForeColor = System.Drawing.Color.DarkCyan;
             this.btn_employee.Location = new System.Drawing.Point(612, 12);
             this.btn_employee.Name = "btn_employee";
             this.btn_employee.Size = new System.Drawing.Size(155, 34);
             this.btn_employee.TabIndex = 2;
-            this.btn_employee.Text = "Employee_part";
+            this.btn_employee.Text = "Employee part";
             this.btn_employee.UseVisualStyleBackColor = true;
             this.btn_employee.Click += new System.EventHandler(this.btn_employee_Click);
             // 
@@ -67,6 +72,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(10F, 25F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.Color.DarkCyan;
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.btn_employee);
             this.Controls.Add(this.btn_Start);

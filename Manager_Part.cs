@@ -23,7 +23,7 @@ namespace Prettybike
             BuilderIDs = this.BuilderIDs;
             DateOrders = this.DateOrders;
             AmountLeft = this.AmountLeft;
-
+           
             
         }
 
@@ -33,8 +33,9 @@ namespace Prettybike
         public int increment = 0;
         public int AmountLeft;
         public int SelectedAmount;
-        
-
+        public int btnCounter = 0;
+        public bool First = true;
+        public int TotalAmount;
         private void Form1_Load(object sender, EventArgs e)
         {
 
@@ -60,40 +61,58 @@ namespace Prettybike
 
         }
 
+
+        private void btn_validate_amt_Click(object sender, EventArgs e)
+        {
+            int AmountSelected = Int32.Parse(this.txtbox_amount.Text);
+            DateOrders = this.dateTP_Manager_from.Value.ToString("yyyy-MM-dd");
+
+            BuilderIDs = this.combobox_Builders.SelectedIndex + 1;
+            SelectedAmount = AmountSelected;
+            if (First == false)
+            {
+                AmountLeft -= SelectedAmount;
+            }
+            else if (First)
+            {
+                AmountLeft = TotalAmount - SelectedAmount;
+                First = false;
+            }
+            MessageBox.Show(AmountLeft.ToString());
+            this.lbl_amount_left_generate.Text = AmountLeft.ToString();
+            sendToDB();
+        }
+
         private void btn_newOrder_Click(object sender, EventArgs e)
         {
 
+            
+            
 
-            Manager_Part manager_Part = new Manager_Part();
-
-            DateOrders = this.dateTP_Manager_from.Value.ToString("yyyy-MM-dd");
-            BuilderIDs = this.combobox_Builders.SelectedIndex + 1;
-            int TotalAmount = Int32.Parse(this.lbl_TotalAmount_Generate.Text);
-            int AmountSelected = Int32.Parse(this.txtbox_amount.Text);
-            SelectedAmount = AmountSelected;
-            AmountLeft = TotalAmount - AmountSelected;
-
-            manager_Part.lbl_amount_left_generate.Text = AmountLeft.ToString();
+            
+          
             if (AmountLeft == 0)
             {
                 increment++;
+                Manager_Part manager_Part = new Manager_Part();
+                Newpage(manager_Part);
+
+
+
+                this.Hide();
+
+                manager_Part.Show();
             }
             else if (AmountLeft < 0)
             {
                 MessageBox.Show("Error : you selected too much bikes");
             }
-            else
+            else 
             {
-                
+                MessageBox.Show("Error : All bikes were not sent to builders");
             }
-            Newpage(manager_Part);
-
-
-
-            this.Hide();
-
-            manager_Part.Show();
-            sendToDB();
+           
+            
 
 
 
@@ -213,15 +232,17 @@ namespace Prettybike
                 myDBReaderBikes.Close();
                 myDBReaderBikes = null;
 
-                
-                
 
 
+
+                IDBike--;
+                
 
                 //Define inner texts
                 manager_Part.lbl_orderdate.Text = myDTOrder.Rows[increment]["date_cmd"].ToString();
                 manager_Part.lbl_representative.Text = myDTClients.Rows[IDClient]["Company_Name"].ToString();
                 manager_Part.lbl_TotalAmount_Generate.Text = myDTcmd_line.Rows[increment]["qty"].ToString();
+                TotalAmount = Int32.Parse(this.lbl_TotalAmount_Generate.Text);
                 manager_Part.lbl_model.Text = myDTbikes.Rows[IDBike]["Bikes_Model"].ToString();
                 manager_Part.lbl_color.Text = myDTbikes.Rows[IDBike]["Bikes_Color"].ToString();
                 manager_Part.lbl_size.Text = myDTbikes.Rows[IDBike]["Bikes_Size"].ToString();
@@ -251,7 +272,7 @@ namespace Prettybike
             MySqlCommand cmd_Working_Day_has_bikes = new MySqlCommand();
 
 
-
+           
             //Queries
             cmd_Working_Day.CommandText = "INSERT INTO Working_Day (Date, Builder_idBuilder) VALUES ('" + DateOrders +"','" + BuilderIDs + "' )";
             cmd_Working_Day_has_bikes.CommandText = "INSERT INTO Working_Day_has_Bikes (Working_Day_Date, Working_Day_Builder_idBuilder, Bikes_idBikes, Command_idCommand, Command_Representative_id_rps,IsDone ) VALUES ('" + DateOrders + "', '" + BuilderIDs + "','" + BikeID + "' ,'" + OrderID + "','" + ClientID + "', 0 )";
@@ -278,7 +299,7 @@ namespace Prettybike
                     
                     
                     int aff2 = cmd_Working_Day_has_bikes.ExecuteNonQuery();
-                    
+                    MessageBox.Show(SelectedAmount.ToString());
                     
                     SelectedAmount -= 1;
                     
@@ -378,6 +399,8 @@ namespace Prettybike
                 MessageBox.Show("Non connecté");
             }
         }
+
+        
     }
 
 }
