@@ -29,41 +29,30 @@ namespace Prettybike
 
         public int BuilderIDs;
         public string DateOrders;
-        
-        public int increment = 0;
+        public int increment_Cmd = 0;
+        public int increment_Cmd_line = 0;
+
         public int AmountLeft;
         public int SelectedAmount;
         public int btnCounter = 0;
         public bool First = true;
         public int TotalAmount;
-        private void Form1_Load(object sender, EventArgs e)
-        {
+        public int BuilderID;
+        public int BikeID;
+        public int OrderID;
+        public int ClientID;
 
-        }
 
-        private void txtbox_CurrentOrder_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void txtbox_amount_TextChanged(object sender, EventArgs e)
-        {
-            
-        }
-
-        private void dateTP_Manager_from_ValueChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void lbl_Manager_Click(object sender, EventArgs e)
-        {
-
-        }
 
 
         private void btn_validate_amt_Click(object sender, EventArgs e)
         {
+            if (AmountLeft == 0)
+            {
+
+                First = true;
+
+            }
             int AmountSelected = Int32.Parse(this.txtbox_amount.Text);
             DateOrders = this.dateTP_Manager_from.Value.ToString("yyyy-MM-dd");
 
@@ -72,31 +61,62 @@ namespace Prettybike
             if (First == false)
             {
                 AmountLeft -= SelectedAmount;
+                if (AmountLeft == 0)
+                {
+                    increment_Cmd_line++;
+                    First = true;
+                    MessageBox.Show("ok");
+                    Manager_Part manager_Part = new Manager_Part();
+                    Newpage(manager_Part);
+
+
+                    this.Hide();
+
+                    manager_Part.Show();
+
+                }
             }
-            else if (First)
+            else if (First == true)
             {
+                TotalAmount = Int32.Parse(this.lbl_TotalAmount_Generate.Text);
+
                 AmountLeft = TotalAmount - SelectedAmount;
                 First = false;
+                if (AmountLeft == 0)
+                {
+                    increment_Cmd_line++;
+                    First = true;
+                    MessageBox.Show("ok");
+                    Manager_Part manager_Part = new Manager_Part();
+                    Newpage(manager_Part);
+
+
+                    this.Hide();
+
+                    manager_Part.Show();
+
+                }
+
             }
             this.lbl_amount_left_generate.Text = AmountLeft.ToString();
             sendToDB();
+            
+
+
         }
+
+
 
         private void btn_newOrder_Click(object sender, EventArgs e)
         {
-
-            
-            
-
-            
           
             if (AmountLeft == 0)
             {
-                increment++;
+                
+                increment_Cmd++;
                 Manager_Part manager_Part = new Manager_Part();
                 Newpage(manager_Part);
-
-
+                
 
                 this.Hide();
 
@@ -110,21 +130,12 @@ namespace Prettybike
             {
                 MessageBox.Show("Error : All bikes were not sent to builders");
             }
-           
-            
-
-
 
         }
 
 
         
-        public int BuilderID;
-        public int BikeID;
-        public int OrderID; 
-        public int ClientID;
-
-
+        
 
         public void Newpage(Manager_Part manager_Part)
         {
@@ -167,10 +178,10 @@ namespace Prettybike
                 DataTable myDTOrder = new DataTable();
                 myDTOrder.Load(myDBReaderOrder);
 
-                string IDClientstring = myDTOrder.Rows[increment]["Representative_id_rps"].ToString();
+                string IDClientstring = myDTOrder.Rows[increment_Cmd]["Representative_id_rps"].ToString();
                 int IDClient = Int32.Parse(IDClientstring);
                 ClientID = IDClient;
-                string IDOrderstring = myDTOrder.Rows[increment]["idCommand"].ToString();
+                string IDOrderstring = myDTOrder.Rows[increment_Cmd]["idCommand"].ToString();
                 OrderID = Int32.Parse(IDOrderstring);
                 
                 IDClient = IDClient - 1;
@@ -212,9 +223,9 @@ namespace Prettybike
                 MySqlDataReader myDBReadercmd_line = myCmd_cmd_line.ExecuteReader();
                 DataTable myDTcmd_line = new DataTable();
                 myDTcmd_line.Load(myDBReadercmd_line);
-                string IDBikestring = myDTcmd_line.Rows[increment]["Bikes_idBikes"].ToString();
+                string IDBikestring = myDTcmd_line.Rows[increment_Cmd_line]["Bikes_idBikes"].ToString();
                 int IDBike = Int32.Parse(IDBikestring);              
-                BikeID = IDBike - 1;
+                BikeID = IDBike;
 
                 myDBReadercmd_line.Close();
                 myDBReadercmd_line = null;
@@ -238,18 +249,18 @@ namespace Prettybike
                 
 
                 //Define inner texts
-                manager_Part.lbl_orderdate.Text = myDTOrder.Rows[increment]["date_cmd"].ToString();
+                manager_Part.lbl_orderdate.Text = myDTOrder.Rows[increment_Cmd]["date_cmd"].ToString();
                 manager_Part.lbl_representative.Text = myDTClients.Rows[IDClient]["Company_Name"].ToString();
-                manager_Part.lbl_TotalAmount_Generate.Text = myDTcmd_line.Rows[increment]["qty"].ToString();
-                TotalAmount = Int32.Parse(this.lbl_TotalAmount_Generate.Text);
+                manager_Part.lbl_TotalAmount_Generate.Text = myDTcmd_line.Rows[increment_Cmd_line]["qty"].ToString();
                 manager_Part.lbl_model.Text = myDTbikes.Rows[IDBike]["Bikes_Model"].ToString();
                 manager_Part.lbl_color.Text = myDTbikes.Rows[IDBike]["Bikes_Color"].ToString();
                 manager_Part.lbl_size.Text = myDTbikes.Rows[IDBike]["Bikes_Size"].ToString();
 
+                TotalAmount = Int32.Parse(this.lbl_TotalAmount_Generate.Text);
                 
 
 
-                
+
             }
             catch
             {
@@ -258,7 +269,9 @@ namespace Prettybike
         }
 
 
-        public void sendToDB()
+
+
+        private void sendToDB()
         {
 
             //Connection with db
@@ -275,12 +288,6 @@ namespace Prettybike
             //Queries
             cmd_Working_Day.CommandText = "INSERT INTO Working_Day (Date, Builder_idBuilder) VALUES ('" + DateOrders +"','" + BuilderIDs + "' )";
             cmd_Working_Day_has_bikes.CommandText = "INSERT INTO Working_Day_has_Bikes (Working_Day_Date, Working_Day_Builder_idBuilder, Bikes_idBikes, Command_idCommand, Command_Representative_id_rps,IsDone ) VALUES ('" + DateOrders + "', '" + BuilderIDs + "','" + BikeID + "' ,'" + OrderID + "','" + ClientID + "', 0 )";
-
-
-            
-
-
-            
 
 
             cmd_Working_Day.Connection = conn;
@@ -334,12 +341,31 @@ namespace Prettybike
 
 
 
-        public void getInfos(Manager_Part man)
+        private void Form1_Load(object sender, EventArgs e)
         {
-            int increm = man.combobox_Builders.SelectedIndex;
-            increm++;
-            
+
         }
+
+        private void txtbox_CurrentOrder_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void txtbox_amount_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void dateTP_Manager_from_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void lbl_Manager_Click(object sender, EventArgs e)
+        {
+
+        }
+
 
         private void btn_back_Click(object sender, EventArgs e)
         {
@@ -351,27 +377,11 @@ namespace Prettybike
             try
             {
                 myConnection.Open();
-                //MessageBox.Show("Connecté");
-                String QueryRepres = "SELECT * FROM Representative";
-                String QueryCommand = "SELECT* FROM Command";
+                
                 String QueryBuilders = "SELECT * FROM Builder";
-                String Querycmd_line = "SELECT * FROM cmd_line";
-                String QueryBikes = "SELECT * FROM Bikes";
-                String QueryWorkingDaysHasBikes = "SELECT * FROM Working_Day_has_Bikes";
-
-
-                MySqlCommand myCmd_Client = new MySqlCommand(QueryRepres, myConnection);
-                MySqlCommand myCmd_Order = new MySqlCommand(QueryCommand, myConnection);
+                
                 MySqlCommand myCmd_Builder = new MySqlCommand(QueryBuilders, myConnection);
-                MySqlCommand myCmd_cmd_line = new MySqlCommand(Querycmd_line, myConnection);
-                MySqlCommand myCmd_Bikes = new MySqlCommand(QueryBikes, myConnection);
-                MySqlCommand myCmd_WorkingDaysHasBikes = new MySqlCommand(QueryWorkingDaysHasBikes, myConnection);
-
-
-
-
-
-
+               
 
                 //Reader Builder
                 MySqlDataReader myDBReaderBuilder = myCmd_Builder.ExecuteReader();

@@ -99,10 +99,11 @@
             // lbl_From
             // 
             this.lbl_From.AutoSize = true;
+            this.lbl_From.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lbl_From.ForeColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.lbl_From.Location = new System.Drawing.Point(444, 231);
+            this.lbl_From.Location = new System.Drawing.Point(444, 225);
             this.lbl_From.Name = "lbl_From";
-            this.lbl_From.Size = new System.Drawing.Size(53, 25);
+            this.lbl_From.Size = new System.Drawing.Size(70, 32);
             this.lbl_From.TabIndex = 32;
             this.lbl_From.Text = "ON  :";
             // 
@@ -162,10 +163,11 @@
             // lbl_Amount
             // 
             this.lbl_Amount.AutoSize = true;
+            this.lbl_Amount.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lbl_Amount.ForeColor = System.Drawing.SystemColors.ButtonFace;
             this.lbl_Amount.Location = new System.Drawing.Point(24, 225);
             this.lbl_Amount.Name = "lbl_Amount";
-            this.lbl_Amount.Size = new System.Drawing.Size(77, 25);
+            this.lbl_Amount.Size = new System.Drawing.Size(102, 32);
             this.lbl_Amount.TabIndex = 23;
             this.lbl_Amount.Text = "Amount";
             // 
@@ -174,7 +176,7 @@
             this.lbl_builder.AutoSize = true;
             this.lbl_builder.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.lbl_builder.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.lbl_builder.Location = new System.Drawing.Point(172, 219);
+            this.lbl_builder.Location = new System.Drawing.Point(172, 225);
             this.lbl_builder.Name = "lbl_builder";
             this.lbl_builder.Size = new System.Drawing.Size(206, 32);
             this.lbl_builder.TabIndex = 22;
