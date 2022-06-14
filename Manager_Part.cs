@@ -23,6 +23,7 @@ namespace Prettybike
             BuilderIDs = this.BuilderIDs;
             DateOrders = this.DateOrders;
             AmountLeft = this.AmountLeft;
+            cmd_line_counter = this.cmd_line_counter;
            
             
         }
@@ -41,7 +42,7 @@ namespace Prettybike
         public int BikeID;
         public int OrderID;
         public int ClientID;
-
+        public int cmd_line_counter;
 
 
 
@@ -112,7 +113,8 @@ namespace Prettybike
           
             if (AmountLeft == 0)
             {
-                increment_Cmd_line += 2;
+               
+                increment_Cmd_line += this.cmd_line_counter;
                 increment_Cmd++;
                 Manager_Part manager_Part = new Manager_Part();
                 Newpage(manager_Part);
@@ -226,6 +228,20 @@ namespace Prettybike
                 string IDBikestring = myDTcmd_line.Rows[increment_Cmd_line]["Bikes_idBikes"].ToString();
                 int IDBike = Int32.Parse(IDBikestring);              
                 BikeID = IDBike;
+
+                int incr2 = 0;
+                while (incr2 < myDTcmd_line.Rows.Count)
+                {
+
+                   if(myDTcmd_line.Rows[incr2]["Command_idCommand"].ToString() == IDOrderstring )
+                    {
+                        cmd_line_counter++;
+                    }
+
+                    incr2 += 1;
+
+                }
+
 
                 myDBReadercmd_line.Close();
                 myDBReadercmd_line = null;
